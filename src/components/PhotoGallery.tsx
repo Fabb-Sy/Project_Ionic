@@ -23,7 +23,7 @@ const PhotoGallery: React.FC<Props> = ({ photos, deletePhoto }) => {
 
 	const confirmDelete = (fileName: string) =>
 		displayAlert({
-			message: 'Are you sure you want to delete this photo? ',
+			message: 'Apakah Anda Ingin Menghapus Foto Ini? ',
 			buttons: [
 				{ text: 'Cancel', role: 'cancel' },
 				{
