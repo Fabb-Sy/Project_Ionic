@@ -23,11 +23,14 @@ const Profile: React.FC = () => {
             <IonTitle className="ion-text-center">Profil Saya</IonTitle>
           </IonToolbar>
           <IonCard
+            div="card"
             style={{
               maxWidth: "500px",
-              margin: "auto",
               marginBottom: "10px",
-              borderRadius: "20px",
+              borderRadius: "15px",
+              margin: "auto",
+              marginLeft: "10px",
+              marginRight: "10px",
             }}
           >
             <IonCardContent style={{ padding: "20px" }}>
@@ -69,18 +72,24 @@ const Profile: React.FC = () => {
                   marginTop: "10px",
                 }}
               >
-                <IonIcon
-                  icon={logoFacebook}
-                  style={{ margin: 5, fontSize: "25px" }}
-                />
-                <IonIcon
-                  icon={logoInstagram}
-                  style={{ margin: 5, fontSize: "25px" }}
-                />
-                <IonIcon
-                  icon={logoTwitter}
-                  style={{ margin: 5, fontSize: "25px" }}
-                />
+                <a href="#" target="_blank">
+                  <IonIcon
+                    icon={logoFacebook}
+                    style={{ margin: 5, fontSize: "25px" }}
+                  />
+                </a>
+                <a href="#" target="_blank">
+                  <IonIcon
+                    icon={logoInstagram}
+                    style={{ margin: 5, fontSize: "25px" }}
+                  />
+                </a>
+                <a href="#" target="_blank">
+                  <IonIcon
+                    icon={logoTwitter}
+                    style={{ margin: 5, fontSize: "25px" }}
+                  />
+                </a>
               </div>
             </IonCardContent>
           </IonCard>
