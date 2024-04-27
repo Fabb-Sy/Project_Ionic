@@ -3,15 +3,17 @@
 ### With the Ionic CLI:
 First you need to run
 ```bash
-$ npm install
+npm install
 ```
-Install The Geolocation
+Install the geolocation
 ```bash
 npm install @capacitor/geolocation
 ```
 To run the ionic application
 ```bash
-$ ionic serve
-$ or
-$ ionic serve --external
+ionic serve
+```
+If you want to run 
+```bash
+ionic serve --external
 ```
