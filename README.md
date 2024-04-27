@@ -13,7 +13,7 @@ To run the ionic application
 ```bash
 ionic serve
 ```
-If you want to run 
+If you want to run with external url 
 ```bash
 ionic serve --external
 ```
