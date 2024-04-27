@@ -1,32 +1,31 @@
 import React, { useEffect, useState } from "react";
-import { IonContent, IonToolbar, IonTitle, IonPage, IonCard, IonCardContent } from "@ionic/react";
-import { Geolocation } from '@capacitor/geolocation';
+import {
+  IonContent,
+  IonToolbar,
+  IonTitle,
+  IonPage,
+  IonCard,
+  IonCardContent,
+} from "@ionic/react";
+import { Geolocation } from "@capacitor/geolocation";
 
 const Map: React.FC = () => {
   const [position, setPosition] = useState({ latitude: 0, longitude: 0 });
 
   useEffect(() => {
-    let isCancelled = false; // flag untuk memeriksa status unmount
-
     const checkGPS = async () => {
       try {
         const coordinates = await Geolocation.getCurrentPosition();
-        if (!isCancelled) { // hanya set posisi jika komponen belum unmount
-          setPosition({
-            latitude: coordinates.coords.latitude,
-            longitude: coordinates.coords.longitude
-          });
-        }
+        setPosition({
+          latitude: coordinates.coords.latitude,
+          longitude: coordinates.coords.longitude,
+        });
       } catch (e) {
-        console.error('Error getting location', e);
+        console.error("Error getting location", e);
       }
     };
 
     checkGPS();
-
-    return () => {
-      isCancelled = true; // set flag ketika komponen akan unmount
-    };
   }, []);
 
   return (
@@ -46,7 +45,11 @@ const Map: React.FC = () => {
               style={{ border: 0 }}
               loading="lazy"
               allowFullScreen
-              src={`https://www.openstreetmap.org/export/embed.html?bbox=${position.longitude-0.005},${position.latitude-0.005},${position.longitude+0.005},${position.latitude+0.005}&layer=mapnik&marker=${position.latitude},${position.longitude}`}
+              src={`https://www.openstreetmap.org/export/embed.html?bbox=${
+                position.longitude - 0.005
+              },${position.latitude - 0.005},${position.longitude + 0.005},${
+                position.latitude + 0.005
+              }&layer=mapnik&marker=${position.latitude},${position.longitude}`}
             ></iframe>
           </IonCardContent>
         </IonCard>

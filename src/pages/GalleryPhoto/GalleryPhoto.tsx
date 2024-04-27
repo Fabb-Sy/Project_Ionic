@@ -7,29 +7,15 @@ import {
   IonPage,
   IonTitle,
   IonToolbar,
-  IonGrid,
-  IonRow,
-  IonCol,
   IonCard,
   IonCardContent,
 } from "@ionic/react";
 import { camera } from "ionicons/icons";
 import PhotoGallery from "../../components/PhotoGallery";
 import { usePhotoGallery } from "../../hooks/usePhotoGallery";
-import { useEffect } from "react";
-import { useHistory } from "react-router-dom";
 
 const GalleryPhoto: React.FC = () => {
   const { photos, takePhoto, deletePhoto } = usePhotoGallery();
-  const history = useHistory();
-
-  useEffect(() => {
-    return history.listen((location) => {
-      if (history.action === "PUSH") {
-        window.location.reload();
-      }
-    });
-  }, [history]);
 
   return (
     <>
@@ -43,22 +29,12 @@ const GalleryPhoto: React.FC = () => {
         <IonContent fullscreen>
           <IonCard>
             <IonCardContent>
-              <IonGrid>
-                <IonRow>
-                  <IonCol
-                    size="6"
-                    horizontal="end"
-                    style={{ display: "flex", flexWrap: "wrap" }}
-                  >
-                    <PhotoGallery photos={photos} deletePhoto={deletePhoto} />
-                  </IonCol>
-                </IonRow>
-              </IonGrid>
+              <PhotoGallery photos={photos} deletePhoto={deletePhoto} />
             </IonCardContent>
           </IonCard>
 
           <IonFab vertical="bottom" horizontal="end" slot="fixed">
-            <IonFabButton color="primary" onClick={() => takePhoto()}>
+            <IonFabButton color="primary" onClick={takePhoto}>
               <IonIcon icon={camera}></IonIcon>
             </IonFabButton>
           </IonFab>
