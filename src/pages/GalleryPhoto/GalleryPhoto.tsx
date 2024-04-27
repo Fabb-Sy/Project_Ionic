@@ -14,10 +14,10 @@ import {
   IonCardContent,
 } from "@ionic/react";
 import { camera } from "ionicons/icons";
-import PhotoGallery from "../components/PhotoGallery";
-import { usePhotoGallery } from "../hooks/usePhotoGallery";
+import PhotoGallery from "../../components/PhotoGallery";
+import { usePhotoGallery } from "../../hooks/usePhotoGallery";
 
-const Home: React.FC = () => {
+const GalleryPhoto: React.FC = () => {
   const { photos, takePhoto, deletePhoto } = usePhotoGallery();
 
   return (
@@ -34,7 +34,7 @@ const Home: React.FC = () => {
             <IonGrid>
               <IonRow>
                 <IonCol
-                  size="12"
+                  size="6"
                   horizontal="end"
                   style={{ display: "flex", flexWrap: "wrap" }}
                 >
@@ -55,4 +55,4 @@ const Home: React.FC = () => {
   );
 };
 
-export default Home;
+export default GalleryPhoto;
